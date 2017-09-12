@@ -4,15 +4,6 @@ const { expect } = require("chai")
 
 const RslpFactory = require("../index") 
 
-const words = [
-  [ "pistola", "pistola" ],
-  [ "caminhão", "caminhão" ],
-  [ "smartphone", "smartphone" ],
-  [ "bananas", "banana" ],
-  [ "avião", "avião" ],
-  [ "constantemente", "constantemente" ],
-]
-
 const verbs = [
   [ "cantaríamo" , "cant" ],
   [ "cantássemo" , "cant" ],
@@ -232,16 +223,6 @@ describe("Rslp", () => {
 
   describe("with a defalt dictionary", () => {
     const rslp = RslpFactory()
-    context("general words", () => {
-      words.forEach(entry => {
-        
-        const [ original, expected ] = entry
-        
-        it(`${original} => ${expected}` , () => {
-          expect(rslp(original)).to.be.equal(expected)
-        })
-      })
-    })
 
     context("plural reduction", () => {
       plural.forEach(entry => {
