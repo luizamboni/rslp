@@ -15,8 +15,11 @@ module.exports = (provideDict) => {
     
     for(const majorRole of dict) {
   
-      const [ roleName , min, size2, suffixes, ...subRoles ] = majorRole
+      const [ roleName , minWordSize, wholeString, suffixes, ...subRoles ] = majorRole
       
+      if(minWordSize && term.length < minWordSize)
+        continue
+
       if(only && only !== roleName.toLowerCase())
         continue
       
@@ -24,14 +27,19 @@ module.exports = (provideDict) => {
         continue
       }
 
+      
       if(suffixes.length === 0 || suffixes.find(suffix => term.endsWith(suffix))) {
         for(const role of subRoles) {
           const [ suffix, stemSize, replace = "", exceptions = [] ] = role
           
           // leave when terms is a execption
-          if(exceptions.indexOf(term) !== -1 )
-            continue
-            
+          if(!!wholeString) {
+            if(exceptions.indexOf(term) !== -1 )
+              continue
+          } else {
+            if(exceptions.find(exception => term.endsWith(exception)))
+              continue
+          }
           // leave when stem size is insuficient
           if((term.length - suffix.length) < stemSize)
             continue
