@@ -152,7 +152,7 @@ const noun = [
   [ "cobertura" , "cobert" ],
   [ "consensual" , "consens" ],
   [ "mundial" , "mund" ],
-  [ "experimental , experimen" ],
+  [ "experimental" , "experimen" ],
 ]
 
 
@@ -214,9 +214,9 @@ const augmentative = [
 ]
 
 const voew = [
-  ["menina" , "menin"],
-  ["grande" , "grand"],
-  ["menino" , "menin"],
+  [ "menina", "menin" ],
+  [ "grande", "grand" ],
+  [ "menino", "menin" ],
 ]
 
 describe("Rslp", () => {
@@ -229,7 +229,7 @@ describe("Rslp", () => {
         
         const [ original, expected ] = entry
         
-        it(`${original} => ${expected}` , () => {
+        it(`${original} => ${expected}`, () => {
           expect(rslp(original, { only: "plural" })).to.be.equal(expected)
         })
       })
@@ -240,7 +240,7 @@ describe("Rslp", () => {
         
         const [ original, expected ] = entry
         
-        it(`${original} => ${expected}` , () => {
+        it(`${original} => ${expected}`, () => {
           expect(rslp(original, { only: "feminine"})).to.be.equal(expected)
         })
       })
@@ -251,7 +251,7 @@ describe("Rslp", () => {
         
         const [ original, expected ] = entry
         
-        it(`${original} => ${expected}` , () => {
+        it(`${original} => ${expected}`, () => {
           expect(rslp(original, { only: "augmentative" })).to.be.equal(expected)
         })
       })
@@ -262,7 +262,7 @@ describe("Rslp", () => {
         
         const [ original, expected ] = entry
         
-        it(`${original} => ${expected}` , () => {
+        it(`${original} => ${expected}`, () => {
           expect(rslp(original, { only: "vowel" })).to.be.equal(expected)
         })
       })
@@ -273,7 +273,7 @@ describe("Rslp", () => {
         
         const [ original, expected ] = entry
         
-        it(`${original} => ${expected}` , () => {
+        it(`${original} => ${expected}`, () => {
           expect(rslp(original, { only: "adverb" })).to.be.equal(expected)
         })
       })
@@ -284,7 +284,7 @@ describe("Rslp", () => {
         
         const [ original, expected ] = entry
         
-        it(`${original} => ${expected}` , () => {
+        it(`${original} => ${expected}`, () => {
           expect(rslp(original, { only: "noun" })).to.be.equal(expected)
         })
       })
@@ -295,7 +295,7 @@ describe("Rslp", () => {
         
         const [ original, expected ] = entry
         
-        it(`${original} => ${expected}` , () => {
+        it(`${original} => ${expected}`, () => {
           expect(rslp(original, { only: "verb" })).to.be.equal(expected)
         })
       })
